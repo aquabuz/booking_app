@@ -9,7 +9,14 @@ module.exports = {
         "light-grey": "#f0f1f3",
       },
     },
-    fontFamily: {},
+    fontSize: {
+      xs: ".65rem",
+      sm: ".775rem",
+      base: "0.9rem",
+      lg: "1.025rem",
+      xl: "1.15rem",
+      "2xl": "1.45rem",
+    },
     flex: {
       "1": "1 1 0%",
       "2": "2 2 0%",
