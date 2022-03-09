@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative min-h-full text-base box-border">
     <router-view />
   </div>
 </template>
