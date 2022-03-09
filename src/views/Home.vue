@@ -242,8 +242,8 @@
 </template>
 
 <script>
+import { reactive, toRefs } from "vue";
 import LayerPopUp from "@/components/LayerPopUp";
-import { reactive, toRefs } from "@vue/reactivity";
 
 export default {
   name: "Home",

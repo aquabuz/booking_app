@@ -14,7 +14,7 @@
           class="px-2 text-lg text-black"
           @click="hideLayer"
         >
-          X
+          <x-icon class="h-6 w-6 text-black" />
         </button>
       </div>
     </div>
@@ -72,11 +72,13 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "@vue/reactivity";
+import { reactive, toRefs } from "vue";
+import { XIcon } from "@heroicons/vue/solid";
 
 export default {
   name: "LayerPopUp",
   emits: ["hideLayer"],
+  components: { XIcon },
   setup(props, { emit }) {
     const state = reactive({});
 
