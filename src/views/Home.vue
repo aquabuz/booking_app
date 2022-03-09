@@ -37,9 +37,9 @@
             />
           </div>
           <div class="flex items-center">
-            <label for="user-password" class="w-1/6 text-sm sm:w-auto"
-              >비밀번호</label
-            >
+            <label for="user-password" class="w-1/6 text-sm sm:w-auto">
+              비밀번호
+            </label>
             <input
               id="user-password"
               type="password"
@@ -161,6 +161,7 @@
           <button
             type="button"
             class="py-2 px-12 font-bold text-white rounded-sm bg-blue-500 flex-1"
+            @click="showLayer = !showLayer"
           >
             추가
           </button>
@@ -173,6 +174,7 @@
           <button
             type="button"
             class="py-2 px-5 font-bold text-white rounded-sm bg-gray-400 flex-1"
+            @click="showLayer = !showLayer"
           >
             편집
           </button>
@@ -235,14 +237,32 @@
       </div>
     </div>
   </div>
+  <!-- layer -->
+  <layer-pop-up v-if="showLayer" @hideLayer="hideLayer"></layer-pop-up>
 </template>
 
 <script>
+import LayerPopUp from "@/components/LayerPopUp";
+import { reactive, toRefs } from "@vue/reactivity";
+
 export default {
   name: "Home",
-  components: {},
+  components: {
+    LayerPopUp,
+  },
   setup() {
-    return {};
+    const state = reactive({
+      showLayer: false,
+    });
+
+    const hideLayer = (e) => {
+      state.showLayer = e;
+    };
+
+    return {
+      ...toRefs(state),
+      hideLayer,
+    };
   },
 };
 </script>
