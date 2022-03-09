@@ -128,8 +128,10 @@
           예약 조회
         </div>
         <!-- readonly -->
-        <div class="py-4 px-2 gap-2 flex flex-1 whitespace-nowrap">
-          <div class="flex flex-1 items-center">
+        <div
+          class="py-4 px-2 gap-2 flex flex-1 flex-col whitespace-nowrap sm:flex-row"
+        >
+          <div class="flex items-center sm:flex-1">
             <label for="success" class="text-sm">예약성공</label>
             <input
               id="success"
@@ -139,7 +141,7 @@
               readonly
             />
           </div>
-          <div class="flex flex-1 items-center">
+          <div class="flex items-center sm:flex-1">
             <label for="fin" class="text-sm">
               <i class="text-xl text-red-500">*</i>
               이용완료
