@@ -56,6 +56,71 @@
         </form>
       </div>
       <!-- division -->
+      <div class="border border-slate-900 rounded-md bg-white shadow-lg">
+        <!-- title -->
+        <div
+          class="py-3 px-4 border-b-4 border-gray-200 bg-gray-100 font-bold text-black"
+        >
+          골프장 선택
+        </div>
+        <!-- form -->
+        <form
+          class="py-4 px-2 gap-2 flex flex-1 flex-col whitespace-nowrap sm:flex-row"
+        >
+          <div class="flex flex-1 items-center ">
+            <label for="course" class="w-1/5 text-sm">
+              골프장 선택
+            </label>
+            <div class="relative flex-1">
+              <!-- layer select -->
+              <div
+                id="course"
+                class="p-1 flex-1 border border-slate-900 rounded-md cursor-pointer"
+                @click="toggleLayer('place-select')"
+              >
+                <div class="flex justify-between items-center">
+                  <span>골프장 선택</span>
+                  <check-icon class="h-4 w-4 text-at-light-blue" />
+                </div>
+              </div>
+              <!-- layer -->
+              <div
+                id="place-select"
+                class="modal absolute p-4 flex flex-col top-10 left-0 w-full border border-slate-900 rounded-md bg-white"
+              >
+                <!-- list -->
+                <ul>
+                  <li
+                    v-for="(item, index) in items"
+                    :key="index"
+                    class="flex items-center place-list"
+                  >
+                    <p class="flex flex-1">{{ item }}</p>
+                  </li>
+                </ul>
+                <!-- button -->
+                <!-- left button -->
+                <div class="mt-5 gap-2 flex">
+                  <button
+                    type="button"
+                    class="py-1 px-4 font-bold text-white rounded-sm bg-blue-500 flex-2"
+                  >
+                    확인
+                  </button>
+                  <button
+                    type="button"
+                    class="py-1 px-4 font-bold text-white rounded-sm bg-gray-400 flex-1"
+                    @click="toggleLayer('place-select')"
+                  >
+                    취소
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- division -->
       <div
         class="border border-slate-900 rounded-md bg-white shadow-lg overflow-hidden"
       >
@@ -246,16 +311,28 @@
 <script>
 import { reactive, toRefs } from "vue";
 import LayerPopUp from "@/components/LayerPopUp";
+import { CheckIcon } from "@heroicons/vue/solid";
 
 export default {
   name: "Home",
   components: {
     LayerPopUp,
+    CheckIcon,
   },
   setup() {
     const state = reactive({
+      items: ["골프장 > 파인", "골프장 > 마운틴", "골프장 > 밸리"],
       showLayer: false,
     });
+
+    const toggleLayer = (name) => {
+      let el = document.getElementById(name);
+      if (el.style.display == "flex" || el.style.display == "block") {
+        el.style.display = "none";
+      } else {
+        el.style.display = "flex";
+      }
+    };
 
     const hideLayer = (e) => {
       state.showLayer = e;
@@ -263,6 +340,7 @@ export default {
 
     return {
       ...toRefs(state),
+      toggleLayer,
       hideLayer,
     };
   },
@@ -270,6 +348,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.modal {
+  display: none;
+}
 table {
   thead > tr:first-child {
     th,
@@ -293,6 +374,7 @@ table {
     }
   }
 }
+.place-list,
 .program-log {
   > p {
     padding: 2px;
