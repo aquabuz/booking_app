@@ -26,7 +26,7 @@
         </label>
         <input
           id="datepicker-date"
-          class="p-1 mx-2 border border-slate-900 rounded-md"
+          class="p-1 mx-2 border border-slate-900 rounded-md bg-white"
           placeholder="Select Date"
           type="date"
         />
@@ -37,7 +37,7 @@
         </label>
         <input
           id="datepicker-time-start"
-          class="p-1 mx-2 border border-slate-900 rounded-md"
+          class="p-1 mx-2 border border-slate-900 rounded-md bg-white"
           type="time"
           min="00:00"
           max="24:00"
@@ -49,7 +49,7 @@
         </label>
         <input
           id="datepicker-time-end"
-          class="p-1 mx-2 border border-slate-900 rounded-md"
+          class="p-1 mx-2 border border-slate-900 rounded-md bg-white"
           type="time"
           min="00:00"
           max="24:00"
