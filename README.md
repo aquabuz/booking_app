@@ -1,5 +1,9 @@
 # booking_web
 
+## Demo:
+
+Demo [github.com/aquabuz/booking_app](https://github.com/aquabuz/booking_app)
+
 ## Project setup
 
 ```
