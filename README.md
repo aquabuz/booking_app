@@ -2,7 +2,7 @@
 
 ## Demo:
 
-Demo [github.com/aquabuz/booking_app](https://github.com/aquabuz/booking_app)
+Demo [aquabuz.github.io/booking_app](https://aquabuz.github.io/booking_app/)
 
 ## Project setup
 
